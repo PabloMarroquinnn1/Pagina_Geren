@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuetzalDev Café | ¡Pedido Confirmado!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: { 50:'#fdf8f6', 100:'#f2e8e5', 500:'#c27c67', 600:'#a36a59', 800:'#4a2c2a', 900:'#2b1817' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-sans text-gray-800 bg-coffee-50 min-h-screen">
+
+    <!-- Navegación -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                    <div class="bg-coffee-800 p-2 rounded-lg text-white">
+                        <i data-lucide="coffee" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-black text-2xl text-coffee-900 tracking-tight">QuetzalDev</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Barra de progreso — todo completado -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">✓</span>
+                <span class="text-green-600 font-semibold text-sm">Carrito</span>
+            </div>
+            <div class="flex-1 h-1 bg-green-500 rounded mx-2"></div>
+            <div class="flex items-center gap-2">
+                <span class="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">✓</span>
+                <span class="text-green-600 font-semibold text-sm">Pago</span>
+            </div>
+            <div class="flex-1 h-1 bg-green-500 rounded mx-2"></div>
+            <div class="flex items-center gap-2">
+                <span class="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">✓</span>
+                <span class="text-green-600 font-semibold text-sm">Confirmación</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 md:p-12 text-center">
+
+            <!-- Ícono de éxito -->
+            <div class="bg-green-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="check-circle-2" class="w-12 h-12 text-green-600"></i>
+            </div>
+
+            <h2 class="text-4xl font-black text-coffee-900 mb-3">¡Pedido confirmado!</h2>
+            <p class="text-gray-500 text-lg mb-2">Gracias por tu compra. Hemos recibido tu pedido y lo estamos preparando.</p>
+
+            <!-- Número de pedido -->
+            <p id="num-pedido" class="text-coffee-600 font-black text-2xl mb-8">Pedido #QD-00000</p>
+
+            <!-- Detalle -->
+            <div class="bg-gray-50 rounded-2xl p-6 text-left mb-6 space-y-3">
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">Nombre</span>
+                    <span id="c-nombre" class="font-semibold text-gray-800">—</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">Correo electrónico</span>
+                    <span id="c-email" class="font-semibold text-gray-800">—</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">Dirección de entrega</span>
+                    <span id="c-dir" class="font-semibold text-gray-800 text-right max-w-xs">—</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">Método de pago</span>
+                    <span id="c-pago" class="font-semibold text-gray-800">—</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">Entrega estimada</span>
+                    <span id="c-fecha" class="font-semibold text-gray-800">—</span>
+                </div>
+                <div class="border-t border-gray-200 pt-3 flex justify-between items-center">
+                    <span class="font-black text-gray-900 text-lg">Total pagado</span>
+                    <span id="c-total" class="font-black text-2xl text-coffee-900">Q. 0.00</span>
+                </div>
+            </div>
+
+            <!-- Nota de envío -->
+            <div class="bg-green-50 border border-green-200 rounded-2xl p-4 text-sm text-green-700 text-left mb-8 flex items-start gap-3">
+                <i data-lucide="truck" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                <p>Tu pedido será entregado en <strong>24–48 horas hábiles</strong> a toda Guatemala. Te contactaremos al número proporcionado para coordinar la entrega.</p>
+            </div>
+
+            <!-- Acciones -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html" onclick="limpiarSesion()"
+                    class="bg-coffee-800 hover:bg-coffee-900 text-white font-bold px-8 py-4 rounded-2xl shadow-lg transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    Seguir comprando
+                </a>
+                <button onclick="window.print()"
+                    class="border-2 border-coffee-800 text-coffee-800 hover:bg-coffee-50 font-bold px-8 py-4 rounded-2xl transition-colors inline-flex items-center justify-center gap-2">
+                    <i data-lucide="printer" class="w-5 h-5"></i>
+                    Imprimir comprobante
+                </button>
+            </div>
+
+            <p class="text-xs text-gray-400 mt-8">
+                ¿Tienes preguntas? Escríbenos a <strong>ventas@quetzaldev.gt</strong> · +502 2234-5678<br>
+                <span class="text-gray-300">⚠ Simulación académica — Práctica 2 · Gerenciales 1 · USAC 2026</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 pt-10 pb-6">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm">&copy; 2026 QuetzalDev — Estrategia de Transformación Digital.</p>
+            <p class="text-gray-400 text-sm">Proyecto Académico — Práctica 2 · Gerenciales 1 · USAC</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Cargar datos del pedido desde sessionStorage
+        const pedido = JSON.parse(sessionStorage.getItem('pedido') || 'null');
+
+        if (pedido) {
+            document.getElementById('num-pedido').textContent = 'Pedido #' + pedido.num;
+            document.getElementById('c-nombre').textContent  = pedido.nombre;
+            document.getElementById('c-email').textContent   = pedido.email;
+            document.getElementById('c-dir').textContent     = pedido.dir;
+            document.getElementById('c-pago').textContent    = pedido.pago;
+            document.getElementById('c-fecha').textContent   = pedido.fecha;
+            document.getElementById('c-total').textContent   = pedido.total;
+        } else {
+            // Si alguien llega directo sin pasar por el flujo, mostrar datos de ejemplo
+            document.getElementById('num-pedido').textContent = 'Pedido #QD-EJEMPLO';
+            document.getElementById('c-nombre').textContent  = 'Cliente de Ejemplo';
+            document.getElementById('c-email').textContent   = 'cliente@ejemplo.com';
+            document.getElementById('c-dir').textContent     = 'Ciudad de Guatemala, Guatemala';
+            document.getElementById('c-pago').textContent    = 'Tarjeta de crédito/débito';
+            document.getElementById('c-fecha').textContent   = 'Miércoles, 25 de febrero de 2026';
+            document.getElementById('c-total').textContent   = 'Q. 45.00';
+        }
+
+        function limpiarSesion() {
+            sessionStorage.removeItem('carrito');
+            sessionStorage.removeItem('descuento');
+            sessionStorage.removeItem('pedido');
+        }
+    </script>
+</body>
+</html>
