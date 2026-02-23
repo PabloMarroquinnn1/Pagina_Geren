@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuetzalDev Café | Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: { 50:'#fdf8f6', 100:'#f2e8e5', 500:'#c27c67', 600:'#a36a59', 800:'#4a2c2a', 900:'#2b1817' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-sans text-gray-800 bg-coffee-50 selection:bg-coffee-500 selection:text-white">
+
+    <!-- Navegación -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                    <div class="bg-coffee-800 p-2 rounded-lg text-white">
+                        <i data-lucide="coffee" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-black text-2xl text-coffee-900 tracking-tight">QuetzalDev</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-coffee-600 font-semibold border-b-2 border-coffee-500">Inicio</a>
+                    <a href="index.html#producto" class="text-gray-600 hover:text-coffee-600 font-semibold transition-colors">Nuestro Café</a>
+                    <a href="index.html#beneficios" class="text-gray-600 hover:text-coffee-600 font-semibold transition-colors">Beneficios</a>
+                </div>
+                <a href="carrito.html" class="relative bg-coffee-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-coffee-900 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center gap-2">
+                    <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                    Carrito
+                    <span id="badge-nav" class="hidden absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-black w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="inicio" class="relative bg-coffee-900 text-white overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=1920&q=80"
+                 alt="Café de fondo" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-coffee-900/50 to-coffee-900/90"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48 flex flex-col items-center text-center">
+            <span class="text-coffee-500 font-bold tracking-wider uppercase mb-4 text-sm md:text-base">Estrategia de Transformación Digital</span>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 drop-shadow-xl leading-tight">
+                Despierta tu potencial con <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-coffee-500 to-yellow-600">QuetzalDev Café</span>
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-300 max-w-3xl drop-shadow-md mb-12 leading-relaxed">
+                El auténtico sabor de Guatemala, listo en segundos. Energía inmediata para profesionales digitales que no tienen tiempo que perder.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#producto" class="bg-coffee-500 hover:bg-coffee-600 text-white text-lg font-bold px-10 py-5 rounded-full shadow-2xl transform transition hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                    Quiero mi café ahora
+                </a>
+                <a href="#beneficios" class="bg-transparent border-2 border-white/30 hover:bg-white/10 text-white text-lg font-bold px-10 py-5 rounded-full transition flex items-center justify-center gap-2">
+                    Saber más
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Producto Estrella -->
+    <section id="producto" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black text-coffee-900 mb-4">Nuestro Producto Estrella</h2>
+                <div class="w-24 h-1.5 bg-coffee-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-16 bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl ring-4 ring-coffee-50">
+                        <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80"
+                             alt="Quetzal Black 250g" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 font-bold px-4 py-2 rounded-full shadow-lg transform rotate-3">
+                            ¡Más Vendido!
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 flex flex-col justify-center">
+                    <div class="inline-flex items-center gap-2 bg-coffee-100 text-coffee-800 font-bold px-4 py-2 rounded-full text-sm mb-6 w-max">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        Edición Especial
+                    </div>
+                    <h3 class="text-4xl font-black text-gray-900 mb-6 leading-tight">
+                        Café Soluble Premium <br><span class="text-coffee-600">"Quetzal Black" (250g)</span>
+                    </h3>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Un blend exclusivo de granos de altura guatemaltecos, liofilizado con alta tecnología para mantener intacto su aroma tostado y cuerpo intenso.
+                    </p>
+                    <div class="bg-gray-50 p-6 rounded-2xl mb-6 border border-gray-100">
+                        <div class="flex items-end gap-4">
+                            <span class="text-6xl font-black text-coffee-900 tracking-tight">Q. 45.00</span>
+                            <span class="text-gray-500 pb-2 font-medium text-lg">/ unidad</span>
+                        </div>
+                        <p class="text-sm text-green-600 font-semibold mt-2 flex items-center gap-1">
+                            <i data-lucide="check-circle-2" class="w-4 h-4"></i> En stock — Envío inmediato
+                        </p>
+                    </div>
+                    <!-- Selector de cantidad -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="font-semibold text-gray-700">Cantidad:</span>
+                        <div class="flex items-center border-2 border-coffee-100 rounded-full overflow-hidden">
+                            <button onclick="cambiarCantidad(-1)" class="px-4 py-2 text-coffee-800 font-black text-xl hover:bg-coffee-50 transition-colors">−</button>
+                            <span id="cantidad-display" class="px-4 font-black text-lg text-coffee-900">1</span>
+                            <button onclick="cambiarCantidad(1)"  class="px-4 py-2 text-coffee-800 font-black text-xl hover:bg-coffee-50 transition-colors">+</button>
+                        </div>
+                    </div>
+                    <button onclick="agregarAlCarrito()"
+                        class="w-full bg-coffee-800 hover:bg-coffee-900 text-white text-xl font-bold px-8 py-5 rounded-2xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        Añadir al Carrito
+                    </button>
+                    <div class="mt-6 grid grid-cols-2 gap-4 text-sm text-gray-600 font-medium">
+                        <div class="flex items-center gap-2"><i data-lucide="truck" class="text-coffee-500 w-5 h-5"></i> Envío a toda Guatemala</div>
+                        <div class="flex items-center gap-2"><i data-lucide="shield-check" class="text-coffee-500 w-5 h-5"></i> Compra segura</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="py-24 bg-coffee-900 text-coffee-50 relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 opacity-10">
+            <i data-lucide="coffee" class="w-96 h-96"></i>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">¿Por qué elegir Quetzal Black?</h2>
+                <p class="text-xl text-coffee-200">Diseñado para la vida moderna sin sacrificar la calidad.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-lg p-10 rounded-3xl border border-white/20 hover:bg-white/20 transition-all text-center group">
+                    <div class="bg-coffee-500 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-white shadow-lg transform group-hover:rotate-12 transition-transform">
+                        <i data-lucide="zap" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Preparación Instantánea</h3>
+                    <p class="text-coffee-100 leading-relaxed text-lg">Tu tiempo vale oro. Disfruta de un café de especialidad al instante, sin cafeteras ni filtros.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg p-10 rounded-3xl border border-white/20 hover:bg-white/20 transition-all text-center group">
+                    <div class="bg-coffee-500 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-white shadow-lg transform group-hover:-rotate-12 transition-transform">
+                        <i data-lucide="map-pin" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">100% Nacional</h3>
+                    <p class="text-coffee-100 leading-relaxed text-lg">Apoyamos a las familias caficultoras locales, procesando el mejor grano de nuestras tierras.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg p-10 rounded-3xl border border-white/20 hover:bg-white/20 transition-all text-center group">
+                    <div class="bg-coffee-500 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-white shadow-lg transform group-hover:rotate-12 transition-transform">
+                        <i data-lucide="battery-charging" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Energía Sostenida</h3>
+                    <p class="text-coffee-100 leading-relaxed text-lg">El nivel perfecto de cafeína para mantener tu enfoque, claridad mental y productividad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="bg-coffee-800 p-2 rounded-lg text-white"><i data-lucide="coffee" class="w-5 h-5"></i></div>
+                    <span class="font-black text-xl text-gray-900">QuetzalDev</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-coffee-600 transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-coffee-600 transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-coffee-600 transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm font-medium">&copy; 2026 QuetzalDev — Estrategia de Transformación Digital.</p>
+                <p class="text-gray-400 text-sm">Proyecto Académico — Práctica 2 · Gerenciales 1 · USAC</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        let cantidad = 1;
+
+        function cambiarCantidad(d) {
+            cantidad = Math.max(1, Math.min(99, cantidad + d));
+            document.getElementById('cantidad-display').textContent = cantidad;
+        }
+
+        function agregarAlCarrito() {
+            // Leer carrito existente de sessionStorage
+            let carrito = JSON.parse(sessionStorage.getItem('carrito') || '[]');
+            const ex = carrito.find(i => i.id === 'qb');
+            if (ex) ex.qty += cantidad;
+            else carrito.push({ id:'qb', nombre:'Quetzal Black (250g)', precio:45, qty:cantidad });
+            sessionStorage.setItem('carrito', JSON.stringify(carrito));
+            // Ir al carrito
+            window.location.href = 'carrito.html';
+        }
+
+        // Mostrar badge si hay items en carrito
+        const carr = JSON.parse(sessionStorage.getItem('carrito') || '[]');
+        const total = carr.reduce((s,i)=>s+i.qty,0);
+        if (total > 0) {
+            const b = document.getElementById('badge-nav');
+            b.textContent = total;
+            b.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

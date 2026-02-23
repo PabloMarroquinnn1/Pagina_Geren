@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuetzalDev Café | Pago</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: { 50:'#fdf8f6', 100:'#f2e8e5', 500:'#c27c67', 600:'#a36a59', 800:'#4a2c2a', 900:'#2b1817' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-sans text-gray-800 bg-coffee-50">
+
+    <!-- Navegación -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                    <div class="bg-coffee-800 p-2 rounded-lg text-white">
+                        <i data-lucide="coffee" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-black text-2xl text-coffee-900 tracking-tight">QuetzalDev</span>
+                </a>
+                <a href="carrito.html" class="text-coffee-600 hover:text-coffee-900 font-semibold flex items-center gap-2 transition-colors">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i> Volver al carrito
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Barra de progreso -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">✓</span>
+                <span class="text-green-600 font-semibold text-sm">Carrito</span>
+            </div>
+            <div class="flex-1 h-1 bg-green-500 rounded mx-2"></div>
+            <div class="flex items-center gap-2">
+                <span class="bg-coffee-800 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                <span class="font-semibold text-coffee-800 text-sm">Pago</span>
+            </div>
+            <div class="flex-1 h-1 bg-gray-200 rounded mx-2"></div>
+            <div class="flex items-center gap-2">
+                <span class="bg-gray-200 text-gray-500 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                <span class="text-gray-400 text-sm">Confirmación</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 py-10">
+        <h2 class="text-3xl font-black text-coffee-900 mb-8 flex items-center gap-3">
+            <i data-lucide="credit-card" class="w-8 h-8"></i> Información de Pago y Envío
+        </h2>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+
+            <!-- Formulario -->
+            <div class="flex-1 space-y-6">
+
+                <!-- Datos personales -->
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 p-6">
+                    <h3 class="font-black text-lg text-coffee-900 mb-5 flex items-center gap-2">
+                        <i data-lucide="user" class="w-5 h-5 text-coffee-500"></i> Datos personales
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre *</label>
+                            <input id="f-nombre" type="text" placeholder="Tu nombre"
+                                class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500 transition-colors">
+                            <p id="e-nombre" class="hidden text-red-500 text-xs mt-1">Campo requerido</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Apellido *</label>
+                            <input id="f-apellido" type="text" placeholder="Tu apellido"
+                                class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500 transition-colors">
+                            <p id="e-apellido" class="hidden text-red-500 text-xs mt-1">Campo requerido</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Correo electrónico *</label>
+                            <input id="f-email" type="email" placeholder="correo@ejemplo.com"
+                                class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500 transition-colors">
+                            <p id="e-email" class="hidden text-red-500 text-xs mt-1">Ingresa un correo válido</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Teléfono *</label>
+                            <input id="f-tel" type="tel" placeholder="5555-5555"
+                                class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500 transition-colors">
+                            <p id="e-tel" class="hidden text-red-500 text-xs mt-1">Campo requerido</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dirección de envío -->
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 p-6">
+                    <h3 class="font-black text-lg text-coffee-900 mb-5 flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-coffee-500"></i> Dirección de envío
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Dirección completa *</label>
+                            <input id="f-dir" type="text" placeholder="Calle, número, colonia"
+                                class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500 transition-colors">
+                            <p id="e-dir" class="hidden text-red-500 text-xs mt-1">Campo requerido</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Ciudad *</label>
+                                <input id="f-ciudad" type="text" placeholder="Guatemala"
+                                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500 transition-colors">
+                                <p id="e-ciudad" class="hidden text-red-500 text-xs mt-1">Campo requerido</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Departamento *</label>
+                                <select id="f-depto" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500 bg-white transition-colors">
+                                    <option value="">Seleccionar...</option>
+                                    <option>Guatemala</option><option>Sacatepéquez</option><option>Chimaltenango</option>
+                                    <option>Escuintla</option><option>Santa Rosa</option><option>Sololá</option>
+                                    <option>Totonicapán</option><option>Quetzaltenango</option><option>Suchitepéquez</option>
+                                    <option>Retalhuleu</option><option>San Marcos</option><option>Huehuetenango</option>
+                                    <option>Quiché</option><option>Baja Verapaz</option><option>Alta Verapaz</option>
+                                    <option>Petén</option><option>Izabal</option><option>Zacapa</option>
+                                    <option>Chiquimula</option><option>Jalapa</option><option>Jutiapa</option><option>El Progreso</option>
+                                </select>
+                                <p id="e-depto" class="hidden text-red-500 text-xs mt-1">Selecciona un departamento</p>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Notas adicionales (opcional)</label>
+                            <textarea id="f-notas" rows="2" placeholder="Apartamento, referencia, instrucciones especiales..."
+                                class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500 transition-colors resize-none"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Método de pago -->
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 p-6">
+                    <h3 class="font-black text-lg text-coffee-900 mb-5 flex items-center gap-2">
+                        <i data-lucide="credit-card" class="w-5 h-5 text-coffee-500"></i> Método de pago
+                    </h3>
+                    <div class="space-y-3">
+                        <label id="ml-card" class="flex items-center gap-4 border-2 border-coffee-800 rounded-2xl p-4 cursor-pointer transition-all">
+                            <input type="radio" name="pago" value="card" checked onchange="seleccionarPago('card')" class="w-4 h-4 accent-amber-800">
+                            <span class="text-2xl">💳</span>
+                            <div>
+                                <div class="font-bold text-gray-900">Tarjeta de crédito / débito</div>
+                                <div class="text-xs text-gray-500">Visa, Mastercard, American Express</div>
+                            </div>
+                        </label>
+                        <label id="ml-transfer" class="flex items-center gap-4 border-2 border-gray-200 rounded-2xl p-4 cursor-pointer hover:border-coffee-200 transition-all">
+                            <input type="radio" name="pago" value="transfer" onchange="seleccionarPago('transfer')" class="w-4 h-4 accent-amber-800">
+                            <span class="text-2xl">🏦</span>
+                            <div>
+                                <div class="font-bold text-gray-900">Transferencia bancaria</div>
+                                <div class="text-xs text-gray-500">Banco Industrial, BAC, G&T Continental</div>
+                            </div>
+                        </label>
+                        <label id="ml-cash" class="flex items-center gap-4 border-2 border-gray-200 rounded-2xl p-4 cursor-pointer hover:border-coffee-200 transition-all">
+                            <input type="radio" name="pago" value="cash" onchange="seleccionarPago('cash')" class="w-4 h-4 accent-amber-800">
+                            <span class="text-2xl">💵</span>
+                            <div>
+                                <div class="font-bold text-gray-900">Pago contra entrega</div>
+                                <div class="text-xs text-gray-500">Efectivo al recibir tu pedido</div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Campos tarjeta -->
+                    <div id="card-fields" class="mt-5 space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Número de tarjeta</label>
+                            <input id="f-card" type="text" placeholder="•••• •••• •••• ••••" maxlength="19"
+                                oninput="this.value=this.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim().substring(0,19)"
+                                class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500">
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Vence</label>
+                                <input id="f-exp" type="text" placeholder="MM/AA" maxlength="5"
+                                    oninput="let v=this.value.replace(/\D/g,'');if(v.length>=2)v=v.slice(0,2)+'/'+v.slice(2,4);this.value=v;"
+                                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">CVV</label>
+                                <input id="f-cvv" type="text" placeholder="•••" maxlength="4"
+                                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre</label>
+                                <input id="f-cardname" type="text" placeholder="En la tarjeta"
+                                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-coffee-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info transferencia -->
+                    <div id="transfer-info" class="hidden mt-5 bg-blue-50 border border-blue-200 rounded-2xl p-4 text-sm">
+                        <p class="font-bold text-blue-900 mb-2">Datos para transferencia:</p>
+                        <p class="text-blue-700 leading-7">
+                            Banco: <strong>Banco Industrial</strong><br>
+                            Cuenta: <strong>123-456789-0</strong><br>
+                            Nombre: <strong>QuetzalDev S.A.</strong><br>
+                            NIT: <strong>12345678-9</strong>
+                        </p>
+                        <p class="text-blue-600 mt-2 text-xs">Envía el comprobante a <strong>ventas@quetzaldev.gt</strong></p>
+                    </div>
+                </div>
+
+                <button onclick="confirmarPedido()"
+                    class="w-full bg-coffee-800 hover:bg-coffee-900 text-white text-xl font-bold py-5 rounded-2xl shadow-xl transition-all hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i data-lucide="check-circle" class="w-6 h-6"></i>
+                    Confirmar pedido
+                </button>
+            </div>
+
+            <!-- Mini resumen -->
+            <div class="lg:w-72">
+                <div class="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 sticky top-24">
+                    <h3 class="font-black text-lg text-coffee-900 mb-4 pb-3 border-b border-gray-100">Tu pedido</h3>
+                    <div id="pay-items" class="space-y-3 mb-4 text-sm"></div>
+                    <div class="border-t border-gray-100 pt-4 space-y-2 text-sm">
+                        <div class="flex justify-between text-gray-600"><span>Subtotal</span><span id="pay-sub" class="font-semibold">Q. 0.00</span></div>
+                        <div class="flex justify-between text-gray-600"><span>Envío</span><span class="text-green-600 font-semibold">GRATIS</span></div>
+                        <div id="pay-disc-row" class="hidden flex justify-between text-green-600 font-semibold"><span>Descuento</span><span id="pay-disc">−Q. 0.00</span></div>
+                        <div class="flex justify-between items-center pt-2 border-t border-gray-100">
+                            <span class="font-black text-gray-900">Total</span>
+                            <span id="pay-total" class="font-black text-xl text-coffee-900">Q. 0.00</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center justify-center gap-1 text-xs text-gray-400">
+                        <i data-lucide="lock" class="w-3 h-3"></i> Pago 100% seguro
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 pt-10 pb-6 mt-16">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm">&copy; 2026 QuetzalDev — Estrategia de Transformación Digital.</p>
+            <p class="text-gray-400 text-sm">Proyecto Académico — Práctica 2 · Gerenciales 1 · USAC</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const carrito   = JSON.parse(sessionStorage.getItem('carrito') || '[]');
+        const descuento = parseFloat(sessionStorage.getItem('descuento') || '0');
+        let metodoPago  = 'card';
+
+        function fmt(n) { return 'Q. ' + n.toFixed(2); }
+        function subtotalVal() { return carrito.reduce((s,i) => s+i.precio*i.qty, 0); }
+        function totalVal()    { return Math.max(0, subtotalVal() - descuento); }
+
+        // Render resumen lateral
+        function renderResumen() {
+            document.getElementById('pay-items').innerHTML = carrito.map(i =>
+                `<div class="flex justify-between">
+                    <span class="text-gray-600">${i.nombre} × ${i.qty}</span>
+                    <span class="font-semibold">${fmt(i.precio*i.qty)}</span>
+                </div>`
+            ).join('');
+            document.getElementById('pay-sub').textContent   = fmt(subtotalVal());
+            document.getElementById('pay-total').textContent = fmt(totalVal());
+            const dr = document.getElementById('pay-disc-row');
+            if (descuento > 0) {
+                dr.classList.remove('hidden');
+                document.getElementById('pay-disc').textContent = '−' + fmt(descuento);
+            }
+        }
+        renderResumen();
+
+        // Método de pago
+        function seleccionarPago(m) {
+            metodoPago = m;
+            ['card','transfer','cash'].forEach(x => {
+                const el = document.getElementById('ml-' + x);
+                el.className = el.className
+                    .replace('border-coffee-800','border-gray-200')
+                    .replace('border-gray-200 border-coffee-800','border-gray-200');
+            });
+            document.getElementById('ml-' + m).className =
+                document.getElementById('ml-' + m).className.replace('border-gray-200','border-coffee-800');
+            document.getElementById('card-fields').classList.toggle('hidden', m !== 'card');
+            document.getElementById('transfer-info').classList.toggle('hidden', m !== 'transfer');
+        }
+
+        // Validación
+        function validar() {
+            const campos = [
+                {id:'f-nombre',  err:'e-nombre',  ok:v=>v.trim().length>0},
+                {id:'f-apellido',err:'e-apellido',ok:v=>v.trim().length>0},
+                {id:'f-email',   err:'e-email',   ok:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
+                {id:'f-tel',     err:'e-tel',     ok:v=>v.trim().length>0},
+                {id:'f-dir',     err:'e-dir',     ok:v=>v.trim().length>0},
+                {id:'f-ciudad',  err:'e-ciudad',  ok:v=>v.trim().length>0},
+                {id:'f-depto',   err:'e-depto',   ok:v=>v.trim().length>0},
+            ];
+            let paso = true;
+            campos.forEach(c => {
+                const inp = document.getElementById(c.id);
+                const err = document.getElementById(c.err);
+                const ok  = c.ok(inp.value);
+                inp.classList.toggle('border-red-400', !ok);
+                err.classList.toggle('hidden', ok);
+                if (!ok) paso = false;
+            });
+            return paso;
+        }
+
+        function confirmarPedido() {
+            if (!validar()) {
+                document.querySelector('.border-red-400')?.scrollIntoView({behavior:'smooth',block:'center'});
+                return;
+            }
+            const payMap = { card:'Tarjeta de crédito/débito', transfer:'Transferencia bancaria', cash:'Pago contra entrega' };
+            // Guardar datos del pedido para la confirmación
+            const pedido = {
+                num:    'QD-' + Math.floor(10000 + Math.random()*90000),
+                nombre: document.getElementById('f-nombre').value + ' ' + document.getElementById('f-apellido').value,
+                email:  document.getElementById('f-email').value,
+                dir:    document.getElementById('f-dir').value + ', ' + document.getElementById('f-ciudad').value + ', ' + document.getElementById('f-depto').value,
+                pago:   payMap[metodoPago],
+                total:  fmt(totalVal()),
+                fecha:  new Date(Date.now()+2*864e5).toLocaleDateString('es-GT',{weekday:'long',year:'numeric',month:'long',day:'numeric'})
+            };
+            sessionStorage.setItem('pedido', JSON.stringify(pedido));
+            window.location.href = 'confirmacion.html';
+        }
+    </script>
+</body>
+</html>
